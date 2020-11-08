@@ -15,11 +15,11 @@ const ProductsGrid = () => {
                         {products.length} Produtos
                     </div>
                 </div>
-                <div className="col-sm-4">
+                {/* <div className="col-sm-4">
                     <div className="form-group">
                         <input type="text" name="" placeholder="procurar produtos" className="form-control" id=""/>
                     </div>
-                </div>
+                </div> */}
             </div>
             <div className={styles.p__grid}>
 
