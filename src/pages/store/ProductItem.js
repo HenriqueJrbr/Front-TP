@@ -1,6 +1,5 @@
 import React, { useContext, useState } from 'react';
 import {Modal,Button} from 'react-bootstrap';
-import { Link } from 'react-router-dom';
 import { CartContext } from '../../contexts/CartContext';
 import { formatNumber } from '../../helpers/utils';
 
@@ -9,15 +8,13 @@ const ProductItem = ({product}) => {
     const { addProduct, cartItems, increase } = useContext(CartContext);
     const [item,setItem] = useState('')
     const [preco,setPreco] = useState('')
-    const [descricao,setDescricao] = useState('')
     const [foto,setFoto] = useState('')
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
-    const handleShow = (name,descricao,preco,foto) => {
+    const handleShow = (name,preco,foto) => {
         setItem(name);
         setPreco(preco);
-        setDescricao(descricao);
         setFoto(foto);
         setShow(true);
     } 
@@ -49,7 +46,6 @@ const ProductItem = ({product}) => {
       <div class="card-body">
         <h5 class="card-title">{item}</h5>
         <p class="card-text">Preço: {preco}</p>
-        <p class="card-text">Descrição do Produto:<br></br>{descricao}</p>
       </div>
       <div class="card-footer bg-transparent">
                     <Button variant="primary" onClick={handleClose}>
@@ -68,7 +64,7 @@ const ProductItem = ({product}) => {
             <h3 className="text-left">{formatNumber(product.price)}</h3>
             <div className="text-right">
                 <button 
-                    onClick={() => handleShow(product.name,product.descricao,product.price,product.photo)}
+                    onClick={() => handleShow(product.name,product.price,product.photo)}
                     className="btn btn-link btn-sm mr-2">Detalhes
                 </button>
 
