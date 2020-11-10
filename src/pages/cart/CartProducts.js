@@ -42,7 +42,7 @@ const CartProducts = () => {
     const enviarDados =event => {
         
       var dados=Array({nome,sobrenome,cep,rua,numero,cidade,bairro,uf,complemento,email,telefone});
-            fetch("${process.env.REACT_APP_API_URL}/sistema/clienteCadastrar", {
+            fetch(`${process.env.REACT_APP_API_URL}/sistema/clienteCadastrar`, {
                 method: "post",
                 body: JSON.stringify(dados),
                 headers: {
